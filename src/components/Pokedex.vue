@@ -61,6 +61,7 @@
     </div>
     <!-- Schermo con squadra nella parte destra -->
     <div class="pokemon-team">
+      <div class="team-decoration"></div>
       <h4>La mia squadra</h4>
       <ul class="team_container">
         <li class="team-bg" v-for="(pokemon, index) in team" :key="index">
@@ -68,6 +69,7 @@
           <img class="team-pokemon" v-if="pokemon" :src="pokemon.sprites.front_default" alt="Pokemon Image">
         </li>
       </ul>
+      <div class="team-decoration-2"></div>
     </div>
   </section>
   <section class="error" v-else>
@@ -193,13 +195,78 @@ menu {
 
 .pokemon-team {
   position: fixed;
+  overflow: hidden;
   top: 125px;
   right: 15%;
   background-color: white;
   border-radius: 10px;
   border: 3px solid #000;
   width: 300px;
-  padding: 20px;
+  padding: 30px;
+  h4{
+    margin-bottom: 20px;
+    text-align: center;
+  }
+}
+
+.team-decoration{
+  background-color: #E3350D;
+  width: 100%;
+  height: 20px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  &::before {
+    content: " ";
+    background-color: #E3350D;
+    width: 30px;
+    height: 23px;
+    display: block;
+    position: absolute;
+    bottom: -22px;
+  }
+
+  &::after {
+    background: transparent url(../../public/decoration.svg) no-repeat 0 0;
+    bottom: -22px;
+    content: " ";
+    position: absolute;
+    height: 24px;
+    width: 75px;
+    left: 26px;
+  }
+}
+
+.team-decoration-2{
+  background-color: #E3350D;
+  width: 100%;
+  height: 20px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  &::before {
+    content: " ";
+    background-color: #E3350D;
+    width: 30px;
+    height: 23px;
+    display: block;
+    position: absolute;
+    bottom: 20px;
+    right: 0;
+  }
+
+  &::after {
+    background: transparent url(../../public/decoration.svg) no-repeat 0 0;
+    bottom: 19px;
+    content: " ";
+    position: absolute;
+    height: 24px;
+    width: 75px;
+    right: 26px;
+    transform: rotate(180deg);
+  }
 }
 
 .team-bg {
@@ -231,6 +298,7 @@ menu {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 30px;
+  padding: 30px 0px;
 }
 
 .pokemon-card {
