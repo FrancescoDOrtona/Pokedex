@@ -1,6 +1,8 @@
 <template>
   <section v-if="pokemon" class="pokedex-container">
     <div class="pokemon-card">
+      <div class="card-decoration"></div>
+      <div class="card-decoration-2"></div>
       <h2 class="pokemon-name">{{ pokemon.name }} <span class="pokemon-order">N° {{ pokemon.order }}</span></h2>
       <div class="pokemon-image-container">
         <img :src="pokemon.sprites.front_default" class="pokemon-image" alt="Pokemon Image">
@@ -49,6 +51,18 @@
           </ul>
         </div>
       </div>
+    </div>
+    <!-- Schermo con squadxra nella parte destra -->
+    <div class="pokemon-team">
+      <h4>La mia squadra</h4>
+      <ul class="team_container">
+        <li class="team-bg">Pokemon 1</li>
+        <li class="team-bg">Pokemon 2</li>
+        <li class="team-bg">Pokemon 3</li>
+        <li class="team-bg">Pokemon 4</li>
+        <li class="team-bg">Pokemon 5</li>
+        <li class="team-bg">Pokemon 6</li>
+      </ul>
     </div>
   </section>
   <section class="error" v-else>
@@ -131,6 +145,24 @@ ul, ol, menu{
   align-items: center;
   height: 100%;
   font-family: "PT Sans", sans-serif;
+  position: relative;
+}
+
+.pokemon-team{
+  position: fixed;
+  top: 125px;
+  right: 15%;
+  background-color: white;
+  border-radius: 10px;
+  border: 3px solid #000;
+  width: 300px;
+  padding: 20px;
+}
+
+.team_container{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 30px;
 }
 
 .pokemon-card {
@@ -139,6 +171,69 @@ ul, ol, menu{
   background-color: #f5f5f5;
   padding: 20px;
   width: 600px;
+  overflow: hidden;
+  position: relative;
+}
+
+.card-decoration{
+  /* background-image: url(../../public/decoration.svg); */
+  background-color: #E3350D;
+  width: 100%;
+  height: 20px;
+  position: absolute; 
+  top: 0;
+  right: 0;
+  left: 0;
+  &::before{
+    content: " ";
+    background-color: #E3350D;
+    width: 85px;
+    height: 23px;
+    display: block;
+    position: absolute;
+    bottom: -22px;
+  }
+  &::after{
+    background: transparent url(../../public/decoration.svg) no-repeat 0 0;
+    bottom: -22px;
+    content: " ";
+    position: absolute;
+    height: 24px;
+    width: 75px;
+    left: 81px;
+  } 
+  
+}
+
+.card-decoration-2{ 
+  width: 100%;
+    height: 20px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    &::after{
+      content: " ";
+      background-color: #E3350D;
+      width: 85px;
+      height: 23px;
+      display: block;
+      position: absolute;
+      bottom: -22px;
+      right: 0;
+    }
+
+    &::before{
+      background: transparent url(../../public/decoration.svg) no-repeat 0 0;
+    bottom: -22px;
+    content: " ";
+    position: absolute;
+    height: 24px;
+    width: 75px;
+    right: 81px;
+    transform: scaleX(-1);
+    }
+  
 }
 
 .pokemon-name {
