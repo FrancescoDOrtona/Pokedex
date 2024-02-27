@@ -85,7 +85,7 @@ export default {
   data() {
     return {
       pokemon: null,
-      team: [] // Inizializza l'array con 6 elementi null
+      team: []
     };
   },
   computed: {
