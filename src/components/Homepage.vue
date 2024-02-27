@@ -94,6 +94,7 @@ main {
   color: black;
   margin-top: 150px;
   margin-bottom: 50px;
+  font-family: "PT Sans", sans-serif;
 }
 
 .pokemon {

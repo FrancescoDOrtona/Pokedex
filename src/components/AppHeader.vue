@@ -44,6 +44,7 @@ header {
     padding: 0px 20px;
     position: relative;
     box-shadow: 2px 2px 20px #000000ab;
+    font-family: "PT Sans", sans-serif;
 }
 
 .header-decoration {

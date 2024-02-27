@@ -130,7 +130,7 @@ ul, ol, menu{
   justify-content: center;
   align-items: center;
   height: 100%;
-  font-family:sans-serif;
+  font-family: "PT Sans", sans-serif;
 }
 
 .pokemon-card {
